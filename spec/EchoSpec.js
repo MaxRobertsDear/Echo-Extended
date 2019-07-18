@@ -15,13 +15,26 @@ describe("Echo", function() {
     //assert
     expect(console.log).toHaveBeenCalledWith("Say something: ");
   })
+
+  it('should return user input to the console', function() {
+    //assemble
+    var stdin = require('mock-stdin').stdin();
+    //act
+    echo.response();
+    stdin.send("Hello World");
+    //assert
+    expect(console.log).toHaveBeenCalledWith("You said: Hello World");
+  })
+
+  it('should return user input to the console', function() {
+    //assemble
+    var stdin = require('mock-stdin').stdin();
+    //act
+    echo.response();
+    stdin.send("Today is Thursday");
+    //assert
+    expect(console.log).toHaveBeenCalledWith("You said: Today is Thursday");
+  })
   
   
 });
-    // it("should be able to play a Song", function() {
-    //   player.play(song);
-    //   expect(player.currentlyPlayingSong).toEqual(song);
-  
-    //   //demonstrates use of custom matcher
-    //   expect(player).toBePlaying(song);
-    // });
