@@ -5,11 +5,16 @@ Echo.prototype.prompt = function() {
   console.log("Say something: ");
 }
 
+Echo.prototype.londonTime = function() {
+  var event = new Date();
+  var londonDate = event.toLocaleString('en-GB', { timeZone: 'Europe/London' });   
+  return londonDate; 
+}
+
 Echo.prototype.response = function() {
   process.stdin.on('data', function(input) {
-    var event = new Date();
-    var londonDate = (event.toLocaleString('en-GB', { timeZone: 'Europe/London' }));    
-    console.log(`${londonDate} | You said: ${input.toString().trim()}`)
+    var echo = new Echo();
+    console.log(`${echo.londonTime()} | You said: ${input.toString().trim()}`)
     process.stdin.pause();
   })
 }

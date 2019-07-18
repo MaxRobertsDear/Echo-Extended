@@ -6,16 +6,16 @@ describe("Echo", function() {
     echo = new Echo();
     console.log = jasmine.createSpy("log");
   });
-
+  
   it('should greet the user with a prompt', function(){
     //assemble
     //act
     echo.prompt();
-
+    
     //assert
     expect(console.log).toHaveBeenCalledWith("Say something: ");
   })
-
+  
   it('should return user input to the console', function() {
     //assemble
     var stdin = require('mock-stdin').stdin();
@@ -27,7 +27,7 @@ describe("Echo", function() {
     //assert
     expect(console.log).toHaveBeenCalledWith(`${londonDate} | You said: Hello World`);
   })
-
+  
   it('should return user input to the console', function() {
     //assemble
     var stdin = require('mock-stdin').stdin();
