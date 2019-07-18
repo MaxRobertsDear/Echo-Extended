@@ -19,5 +19,9 @@ Echo.prototype.response = function() {
   })
 }
 
+var echo = new Echo();
+echo.prompt();
+echo.response();
+
 module.exports = Echo;
 
