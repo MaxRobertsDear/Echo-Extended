@@ -22,8 +22,10 @@ describe("Echo", function() {
     //act
     echo.response();
     stdin.send("Hello World");
+    var event = new Date();
+    var londonDate = (event.toLocaleString('en-GB', { timeZone: 'Europe/London' }));
     //assert
-    expect(console.log).toHaveBeenCalledWith("You said: Hello World");
+    expect(console.log).toHaveBeenCalledWith(`${londonDate} | You said: Hello World`);
   })
 
   it('should return user input to the console', function() {
@@ -32,9 +34,10 @@ describe("Echo", function() {
     //act
     echo.response();
     stdin.send("Today is Thursday");
+    var event = new Date();
+    var londonDate = (event.toLocaleString('en-GB', { timeZone: 'Europe/London' }));
     //assert
-    expect(console.log).toHaveBeenCalledWith("You said: Today is Thursday");
+    expect(console.log).toHaveBeenCalledWith(`${londonDate} | You said: Today is Thursday`);
   })
-  
-  
+
 });
