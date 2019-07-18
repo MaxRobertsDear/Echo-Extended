@@ -12,10 +12,14 @@ Echo.prototype.londonTime = function() {
 }
 
 Echo.prototype.response = function() {
+  var echo = new Echo();
   process.stdin.on('data', function(input) {
-    var echo = new Echo();
-    console.log(`${echo.londonTime()} | You said: ${input.toString().trim()}`)
-    process.stdin.pause();
+    while (input != 'quit') {
+      console.log(`${echo.londonTime()} | You said: ${input.toString().trim()}`)
+      echo.prompt();
+      break;
+    } 
+    if (input.toString().trim() == 'quit') { process.stdin.pause() };
   })
 }
 
