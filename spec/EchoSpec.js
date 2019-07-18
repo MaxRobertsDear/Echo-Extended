@@ -40,4 +40,14 @@ describe("Echo", function() {
     expect(console.log).toHaveBeenCalledWith(`${londonDate} | You said: Today is Thursday`);
   })
 
+  it('should exit the program when the user enters "quit"', function() {
+    //assemble
+    var stdin = require('mock-stdin').stdin();
+    //act
+    echo.response();
+    stdin.send('quit');
+    //assert
+    expect(console.log).toHaveBeenCalledWith('Goodbye');
+  })
+
 });

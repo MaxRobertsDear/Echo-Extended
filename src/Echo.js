@@ -19,12 +19,16 @@ Echo.prototype.response = function() {
       echo.prompt();
       break;
     } 
-    if (input.toString().trim() == 'quit') { process.stdin.pause() };
+    if (input.toString().trim() == 'quit') { 
+      console.log('Goodbye')
+      process.stdin.pause() 
+    };
   })
 }
 
 var echo = new Echo();
 echo.prompt();
+console.log("exit by typing 'quit'");
 echo.response();
 
 module.exports = Echo;
